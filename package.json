@@ -1,0 +1,33 @@
+{
+	"name": "deltabase",
+	"version": "0.0.0",
+	"main": "index.js",
+	"dependencies": {
+		"bunyan": "^1.5.1",
+		"cross-env": "^1.0.7",
+		"q": "^1.4.1"
+	},
+	"devDependencies": {
+		"bunyan-prettystream": "hadfieldn/node-bunyan-prettystream",
+		"chai": "^3.2.0",
+		"jscs": "^2.1.0",
+		"mocha": "^2.4.5",
+		"nodemon": "^1.9.1",
+		"rimraf": "^2.4.2"
+	},
+	"engine": {
+		"node": ">=4.0"
+	},
+	"scripts": {
+		"clean": "./node_modules/.bin/rimraf logs/*",
+		"docker": "npm run docker:build && npm run docker:run",
+		"docker:build": "docker build -t deltabase .",
+		"docker:run": "docker run -d -v /var/run/docker.sock:/tmp/docker.sock -p 8000:8000 --name='deltabase' deltabase",
+		"docker:stop": "docker stop scout-api && docker rm scout-api",
+		"lint": "./node_modules/.bin/jscs src",
+		"test": "./node_modules/.bin/cross-env IGNORE_AUTH=true ./node_modules/.bin/mocha -R spec --recursive src --timeout 10000",
+		"watch": "./node_modules/.bin/nodemon -x npm run dev",
+		"watch:debug": "./node_modules/.bin/nodemon --debug -q -w assets/ --ext '.' --exec 'npm run lint'",
+		"dev": "npm run clean && npm run lint --force && npm test && node ."
+	}
+}

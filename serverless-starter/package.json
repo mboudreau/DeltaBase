@@ -1,0 +1,26 @@
+{
+  "name": "serverless-starter",
+  "version": "0.2.1",
+  "description": "A bare bones Serverless Framework project with examples for common use cases.",
+  "author": {
+    "name": "Serverless.com"
+  },
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serverless/serverless-starter.git"
+  },
+  "dependencies": {
+    "serverless-optimizer-plugin": "^2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/serverless/serverless-starter/issues"
+  },
+  "homepage": "https://github.com/serverless/serverless-starter#readme",
+  "scripts": {},
+  "_npmOperationalInternal": {
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/serverless-starter-0.2.1.tgz_1458892667270_0.7738919164985418"
+  }
+}

@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+  - 'stable'
+script:
+  - npm test
+deploy:
+  - provider: elasticbeanstalk
+    app: scout-api
+    env: scout-api
+    region: ap-southeast-2
+    bucket_name: beanstalk-apps-ap-southeast-2
+    bucket_path: scout-api
+    access_key_id:
+      secure: "dIvN4ab0uIvgIBvn0nfSOfUn73te7/gSPVQfNXR8pPrPsnyVXooc2ZxSbEYl6EGmrE2EX0VO9MQV+bVWiOcGfMcSMZ4i8oq1erzLDbrstj3toi1B0yp83oew5RDy9cWnewI6cUHJv9Hqsw6B5mt0sxX4B2YCzsBvVJMgcvzf4GDQ9xuIK8A3SlE5zXAu7aLO5yEJKEQBeOfdbMjwJ2IOJH4dwn75zhZ7eqR74zI93JNP+hCBgiAjFyukhOXgQ9tml/+MbxcYwHycgV3Yhisei5OcUcCoY+SBRJpN8ilhtuvDe60zDlSFH2EclvPN7VtEDQwTLDxZFg0LXGE+5RVhLdcQWq9c/mJWO9z/MGPtzeHfUGQn3RDhHtVjUllA7ZxxoP90uAM/Aab6ip+fLfoI13aS4hTiGmm9PH0p40mSDQC1dVxjwlqPNDP1N39LOzUcjNjwi/3WwfpxlwLe/YgXu5NZ8JYcHcrGCl++NNk5d29chw0ilPyLiheiQBDXf5qLfptP+3zJE4CKWgMBOjOhsjWXbHENhggG3d3DHHiq9zfmvH+P1HXCWDEnQkYV3uM2x59zGvWCCe8zsjMP6hOhqMldGrN377jFGRJLBzjnTL7Dewqj6EDDSlFJOCaBCYvHPJPeHbG3qwMC6i/InBeqXUorzZKd/floYdS1vtQe1DY="
+    secret_access_key:
+      secure: "0m8wnw74YnRhOshs/IQBDg1sYj4zvVW41+/8aoJot6uUd0lMpoZ3yxJ0tycSfwOBgAtoHkrbUx+m9yzjeBbC1dnW3wKCy1PIuVSjrWo5bgC94cD/AJZZRxGxLZc0fQo1V8d5dfhh9Rwwo7UBp1WFEXffdyT3qWUqOD4M//qAAOaUN0shkOi8nWpq90eak9Wfg23KHiaNQQgAkC6ZQEMguqUbCXpYoV5wtp3Z13VCXUVmfixmKJJK0i21e/Cy2mUdwqz2bH6XQgPC1NZOjCiRuXH+hJRPnrRJ8E9TgSnc7lYkM6RVLAo6Kcp60ZuiYpOP59TzYtZAwYZ2z95O8xVeF0DQpFZfZJByJeIghRH2YCG5SgGPCGydmA49mi7nBWyUYkoAct1Oe/EQqnYsHWOdefAfgzCE9jenawUE53ice+J4OGGyTOdl6k9n3fotKHNzxAxMoF0If/kNBmyhh6PS82t0sObIhKadpO8pqOrsfDOTmG5Uc4sUO/6/P302RT0UbvGXuZ/CXJ+rw2m7z5S/PDE22xoSNMPTpfg0a1MMYpyzn/y/Z/uyu0VfzeQUm5Gqva3kAVwwA7tZcD6nXiF+jRiOu1QY6pPFMgHok3gAO58nK+n3oW2Y+aIAB5TWy3rXPriuO271Tk+1g8bGZCb3PjRKA5nD0c9DnE4TvBTzez4="
+    on:
+      branch: master
+      tags: true
+  - provider: elasticbeanstalk
+    app: scout api
+    env: scout-api-dc3
+    region: eu-west-1
+    bucket_name: beanstalk-apps-eu-west-1
+    bucket_path: scout-api
+    access_key_id:
+      secure: "dIvN4ab0uIvgIBvn0nfSOfUn73te7/gSPVQfNXR8pPrPsnyVXooc2ZxSbEYl6EGmrE2EX0VO9MQV+bVWiOcGfMcSMZ4i8oq1erzLDbrstj3toi1B0yp83oew5RDy9cWnewI6cUHJv9Hqsw6B5mt0sxX4B2YCzsBvVJMgcvzf4GDQ9xuIK8A3SlE5zXAu7aLO5yEJKEQBeOfdbMjwJ2IOJH4dwn75zhZ7eqR74zI93JNP+hCBgiAjFyukhOXgQ9tml/+MbxcYwHycgV3Yhisei5OcUcCoY+SBRJpN8ilhtuvDe60zDlSFH2EclvPN7VtEDQwTLDxZFg0LXGE+5RVhLdcQWq9c/mJWO9z/MGPtzeHfUGQn3RDhHtVjUllA7ZxxoP90uAM/Aab6ip+fLfoI13aS4hTiGmm9PH0p40mSDQC1dVxjwlqPNDP1N39LOzUcjNjwi/3WwfpxlwLe/YgXu5NZ8JYcHcrGCl++NNk5d29chw0ilPyLiheiQBDXf5qLfptP+3zJE4CKWgMBOjOhsjWXbHENhggG3d3DHHiq9zfmvH+P1HXCWDEnQkYV3uM2x59zGvWCCe8zsjMP6hOhqMldGrN377jFGRJLBzjnTL7Dewqj6EDDSlFJOCaBCYvHPJPeHbG3qwMC6i/InBeqXUorzZKd/floYdS1vtQe1DY="
+    secret_access_key:
+      secure: "0m8wnw74YnRhOshs/IQBDg1sYj4zvVW41+/8aoJot6uUd0lMpoZ3yxJ0tycSfwOBgAtoHkrbUx+m9yzjeBbC1dnW3wKCy1PIuVSjrWo5bgC94cD/AJZZRxGxLZc0fQo1V8d5dfhh9Rwwo7UBp1WFEXffdyT3qWUqOD4M//qAAOaUN0shkOi8nWpq90eak9Wfg23KHiaNQQgAkC6ZQEMguqUbCXpYoV5wtp3Z13VCXUVmfixmKJJK0i21e/Cy2mUdwqz2bH6XQgPC1NZOjCiRuXH+hJRPnrRJ8E9TgSnc7lYkM6RVLAo6Kcp60ZuiYpOP59TzYtZAwYZ2z95O8xVeF0DQpFZfZJByJeIghRH2YCG5SgGPCGydmA49mi7nBWyUYkoAct1Oe/EQqnYsHWOdefAfgzCE9jenawUE53ice+J4OGGyTOdl6k9n3fotKHNzxAxMoF0If/kNBmyhh6PS82t0sObIhKadpO8pqOrsfDOTmG5Uc4sUO/6/P302RT0UbvGXuZ/CXJ+rw2m7z5S/PDE22xoSNMPTpfg0a1MMYpyzn/y/Z/uyu0VfzeQUm5Gqva3kAVwwA7tZcD6nXiF+jRiOu1QY6pPFMgHok3gAO58nK+n3oW2Y+aIAB5TWy3rXPriuO271Tk+1g8bGZCb3PjRKA5nD0c9DnE4TvBTzez4="
+    on:
+      branch: master
+      tags: true
